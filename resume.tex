@@ -1,0 +1,181 @@
+%-------------------------
+% Resume in Latex
+% Author : Prateek
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=4pt}   % ← TIGHTENED
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage[scale=0.90,lf]{FiraMono}
+
+\definecolor{light-grey}{gray}{0.83}
+\definecolor{dark-grey}{gray}{0.3}
+\definecolor{text-grey}{gray}{.08}
+
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+\usepackage{tgheros}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\flushbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat {\section}{
+    \bfseries \vspace{2pt} \raggedright \large   % ← TIGHTENED
+}{}{0em}{}[\color{light-grey} {\titlerule[2pt]} \vspace{-4pt}]  % ← TIGHTENED
+
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-0.5pt}}}   % ← TIGHTENED
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-3pt}\item    % ← TIGHTENED
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\color{dark-grey}\small #2}\\
+      \textit{#3} & {\color{dark-grey} \small #4}\\
+    \end{tabular*}\vspace{-3pt}   % ← TIGHTENED
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{-2.5pt}\item   % ← TIGHTENED
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & {\color{dark-grey}} \\
+    \end{tabular*}\vspace{-2.5pt}   % ← TIGHTENED
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+\color{text-grey}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge Prateek Pulkit} \\ \vspace{2pt}
+    \small 
+    \faPhone* \hspace{2pt} \href{tel:8309811728}{\texttt{8309811728}} \hspace{6pt} $|$ \hspace{6pt}
+    \faEnvelope \hspace{2pt} \href{mailto:prateekpulkit124@gmail.com}{\texttt{prateekpulkit124@gmail.com}} \hspace{6pt} $|$ \hspace{6pt}
+    \faLinkedin \hspace{2pt} \href{https://www.linkedin.com/in/prateek-pulkit-b45278323}{\texttt{prateekpulkit}} \hspace{6pt} $|$ \hspace{6pt}
+    \faGithub \hspace{2pt} \href{https://github.com/prateekpulkit}{\texttt{prateekpulkit}} \\ \vspace{3pt}
+    \faCode \hspace{2pt} \href{https://leetcode.com/u/prateek_pulkit/}{\texttt{prateek\_pulkit}} \hspace{6pt} $|$ \hspace{6pt}
+    \faTerminal \hspace{2pt} \href{https://codeforces.com/profile/Prateek_Pulkit}{\texttt{Prateek\_Pulkit}} \hspace{6pt} $|$ \hspace{6pt}
+    \faLaptopCode \hspace{2pt} \href{https://www.codechef.com/users/prateekpulkit}{\texttt{prateekpulkit}}
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{EXPERIENCE}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{IBM Foundation (\href{https://drive.google.com/file/d/1hWa0EpgkmZYhbbBWHh55yjGafnRl4pxT/view?usp=sharing}{\myuline{Certificate}})}{June 2025 -- July 2025}
+{AIML and Full Stack Developer Intern under the supervision on mentors from Edunet Foundation}{}
+\resumeItemListStart
+\resumeItem{Worked on Artificial Intelligence, Machine Learning, and Web Development projects involving real-world problem solving}
+\resumeItem{Developed a full-stack Blood Bank Management System with inventory management, donor/recipient tracking, and CRUD operations}
+\resumeItemListEnd
+
+\resumeSubheading
+{SmartBridge}{June 2025 -- July 2025}
+{Salesforce Developer Intern}{}
+\resumeItemListStart
+\resumeItem{Worked on Salesforce application development and workflow automation using Apex Programming}
+\resumeItem{Gained hands-on experience in CRM solutions, business logic implementation, and cloud platform customization}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{PROJECTS}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading{\textbf{RelaunchHer} }
+\resumeItemListStart
+\resumeItem{Engineered a comprehensive career-reentry platform empowering women to return to the workforce through dynamic opportunity boards, community storytelling, and an actionable task planner. Developed a high-performance \textbf{Single Page Application (SPA)} leveraging \textbf{React, Vite, and Tailwind CSS} for a fluid, responsive user interface. Implemented a secure \textbf{dual-role authentication system} with stateful protected routing, and integrated a simulated backend via \textbf{JSON Server} to orchestrate asynchronous \textbf{RESTful CRUD operations} and dynamic data fetching}
+\resumeItemListEnd
+
+\resumeProjectHeading{\textbf{Hybrid-TCN Micro-Expression Detection System}}
+\resumeItemListStart
+\resumeItem{Engineered a research-grade system for detecting brief (40--500ms) involuntary facial movements using a hybrid multi-modal pipeline combining Optical Flow and a novel \textbf{Chromo-Temporal vascular signal.} Developed a high-performance temporal architecture utilizing \textbf{Dilated TCNs} and \textbf{MobileNetV2}, optimized for edge inference on CPU at 20+ FPS with real-time emotion labeling. Achieved a state-of-the-art \textbf{0.99 F1-score} on the CASME II and CK+ datasets using \textbf{LOSO cross-validation}, outperforming existing LSTM-based baselines in precision and recall}
+\resumeItemListEnd
+
+\resumeProjectHeading{\textbf{Aether Writer}}
+\resumeItemListStart
+\resumeItem{Engineered a production-grade AI writing assistant utilizing a \textbf{hybrid neural pipeline} (T5, BERT-Tiny) for offline grammar correction and linguistic analysis. Developed a modular 5-layer scanning engine combining \textbf{deterministic heuristics} and \textbf{deep learning} to detect structural and semantic errors with high precision. Built a high-performance \textbf{SPA} with \textbf{React, Vite, and Framer Motion}, featuring a low-latency \textbf{LRU caching engine} and glassmorphic UI}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{EDUCATION}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{SRM University AP}{2023 -- 2027}
+{B.Tech in Computer Science with Specialization in \textbf{AI\&ML}}{CGPA: 9.08/10}
+
+\resumeSubheading
+{Bhashyam Junior College}{2021 -- 2023}
+{Intermediate MPC}{Score: 933/1000}
+
+\resumeSubheading
+{Bhashyam Blooms (E.M) U.P School, Guntur}{2021}
+{Class 10  CBSE}{Score: 475/500}
+
+\resumeSubHeadingListEnd
+
+%-----------SKILLS AND ACHIEVEMENTS-----------
+\section{SKILLS AND ACHIEVEMENTS}
+\begin{itemize}[leftmargin=0in, label={}, itemsep=0.8pt]
+
+\item \small \textbf{Achievements}: \href{https://drive.google.com/drive/folders/18NXQFbz9toIZc5N5988iZDU3YhqY8w8c?usp=drive_link}{\myuline{Hackathon\textbf{s}}} | NSIT Science Olympiad Gold Medal (AIR 4)
+
+
+\item \small \textbf{Certifications}: 
+\href{https://drive.google.com/file/d/1hgfDA6pZI1xnkiy6GxCCvwDHkQ82VIQM/view?usp=sharing}{\myuline{Oracle Certified Java Programmer}}
+\href{https://drive.google.com/file/d/1hWa0EpgkmZYhbbBWHh55yjGafnRl4pxT/view?usp=sharing}{\myuline{IBM Internship Certificate}}
+\href{https://drive.google.com/file/d/12xtVRXtQ-uQduHLPapS4C63LgLWP_89W/view?usp=drive_link}{\myuline{MongoDB Certified Assosiate Developer}}
+
+\item \small \textbf{Programming Languages}: C, C++, Python, Java, JavaScript, PHP
+\item \small \textbf{Web Technologies}: HTML, CSS, React, Node.js, Express.js
+\item \small \textbf{Databases}: MySQL, MongoDB
+\item \small \textbf{Core Competencies}: Data Structures, Algorithms, CRUD Operations, RESTful APIs, Full-Stack Development
+\item \small \textbf{Technologies \& Concepts}: Machine Learning, NLP, Authentication Systems, API Development, Responsive UI
+\item \small \textbf{Tools \& Operating Systems}: Git, Docker, VS Code | Windows, Linux
+
+\end{itemize}
+
+\end{document}
