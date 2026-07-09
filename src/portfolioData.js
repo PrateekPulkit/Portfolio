@@ -4,7 +4,6 @@ export const portfolioData = {
     title: "AI/ML Engineer & Full-Stack Developer",
     subtitle: "Data Scientist & Developer",
     email: "prateekpulkit124@gmail.com",
-    phone: "+91 83098 11728",
     location: "Guntur, Andhra Pradesh, India",
     github: "https://github.com/prateekpulkit",
     linkedin: "https://www.linkedin.com/in/prateek-pulkit-b45278323",

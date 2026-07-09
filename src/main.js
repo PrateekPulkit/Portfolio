@@ -108,12 +108,6 @@ function renderAbout() {
     detailEmail.textContent = info.email;
     detailEmail.href = `mailto:${info.email}`;
   }
-
-  const detailPhone = document.getElementById('detail-phone');
-  if (detailPhone) {
-    detailPhone.textContent = info.phone;
-    detailPhone.href = `tel:${info.phone.replace(/\s+/g, '')}`;
-  }
 }
 
 // Render Work Experience
