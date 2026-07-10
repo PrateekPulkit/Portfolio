@@ -96,7 +96,7 @@ export const portfolioData = {
       demo: "#"
     },
     {
-      title: "EduQuest (ExamZone)",
+      title: "EduQuest",
       description: "A next-generation E-learning platform prototype created to modernize the way online education is delivered, consumed, and managed. Features simulated classroom proctoring with tab change detection, automated grading, and timed quizzes.",
       tags: ["Node.js", "Express.js", "MongoDB", "JavaScript", "E-learning", "HTML/CSS"],
       github: "https://github.com/PrateekPulkit/EduQuest",
