@@ -41,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initMagneticButtons();
   initScrollSkew();
   initProjectsStackScroll();
+  initFooterTimeWidget();
+  setupThemeToggle();
 });
 
 
@@ -705,17 +707,17 @@ function init3DTilt() {
       card.style.setProperty('--my', `${py}%`);
     });
     
-    card.style.transition = 'transform 0.15s ease-out, border-color 0.3s ease, box-shadow 0.3s ease';
+    card.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease';
 
     card.addEventListener('mouseleave', () => {
-      card.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease';
+      card.style.transition = 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease';
       card.style.setProperty('--rx', '0deg');
       card.style.setProperty('--ry', '0deg');
       
       // Remove specular shine overlay smoothly
       setTimeout(() => {
-        card.style.transition = 'transform 0.15s ease-out, border-color 0.3s ease, box-shadow 0.3s ease';
-      }, 600);
+        card.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease';
+      }, 800);
     });
   });
 }
@@ -844,6 +846,55 @@ function initProjectsStackScroll() {
   window.addEventListener('resize', update, { passive: true });
   update();
 }
+
+// India IST Time Widget Updater inside footer
+function initFooterTimeWidget() {
+  const timeVal = document.getElementById('time-widget-val');
+  if (!timeVal) return;
+
+  function update() {
+    const options = {
+      timeZone: 'Asia/Kolkata',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    };
+    const formatter = new Intl.DateTimeFormat('en-US', options);
+    timeVal.textContent = formatter.format(new Date());
+  }
+  setInterval(update, 1000);
+  update();
+}
+
+// Setup responsive dual theme switcher
+function setupThemeToggle() {
+  const toggleBtn = document.getElementById('theme-toggle');
+  if (!toggleBtn) return;
+
+  const getSavedTheme = () => localStorage.getItem('portfolio-theme') || 'light';
+  
+  const applyTheme = (theme) => {
+    if (theme === 'dark') {
+      document.body.classList.add('dark');
+      toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    } else {
+      document.body.classList.remove('dark');
+      toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+  };
+
+  // Toggle theme click trigger
+  toggleBtn.addEventListener('click', () => {
+    const nextTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+    localStorage.setItem('portfolio-theme', nextTheme);
+    applyTheme(nextTheme);
+  });
+
+  // Apply saved theme on page load
+  applyTheme(getSavedTheme());
+}
+
 
 
 
