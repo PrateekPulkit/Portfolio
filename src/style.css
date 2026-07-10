@@ -52,6 +52,18 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.035) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: -2;
+  opacity: 1;
 }
 
 main {
@@ -83,6 +95,19 @@ main {
   margin: 0 auto;
   padding: 0 24px;
   width: 100%;
+  position: relative;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(14, 165, 233, 0.12) 0%, rgba(168, 85, 247, 0.12) 50%, rgba(249, 115, 22, 0.08) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .section {
@@ -528,43 +553,78 @@ main {
   transform: translateZ(-30px);
 }
 
-/* About Section Styles */
+/* About Section Styles (Unique Bento Grid Skeleton) */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 60px;
-  align-items: flex-start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
-.about-bio {
+.about-bio-card {
+  grid-column: span 2;
   font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.about-bio-card h3 {
+  font-family: var(--font-header);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.about-bio-card p {
   color: var(--text-secondary);
 }
 
-.about-bio p {
-  margin-bottom: 30px;
+.about-card-info {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.about-stats-grid {
+.personal-details-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-stats-wrapper {
+  grid-column: span 3;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  width: 100%;
 }
 
 .stat-item {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 16px;
-  padding: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 24px 20px;
   text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--card-hover-border);
+  box-shadow: var(--shadow-md), 0 0 15px rgba(14, 165, 233, 0.05);
 }
 
 .stat-val {
   font-family: var(--font-header);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--accent-cyan);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent-blue);
   display: block;
+  margin-bottom: 6px;
+  transform: translateZ(15px);
 }
 
 .stat-lbl {
@@ -572,6 +632,8 @@ main {
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 600;
+  transform: translateZ(10px);
 }
 
 .details-list {
@@ -1599,7 +1661,14 @@ a.contact-link-item:hover div span {
   
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
+  }
+  .about-bio-card, .about-stats-wrapper {
+    grid-column: span 1 !important;
+  }
+  .about-stats-wrapper {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
   }
   
   .skills-layout {
@@ -1797,6 +1866,12 @@ a.contact-link-item:hover div span {
 }
 .achievement-card:nth-child(3n+3) {
   border-left: 4px solid #a855f7 !important;
+}
+
+@media (max-width: 576px) {
+  .about-stats-wrapper {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 
