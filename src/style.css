@@ -1,29 +1,29 @@
 /* CSS Custom Properties / Design Tokens */
 :root {
-  --bg-primary: #030408;       /* Deep matte black */
-  --bg-secondary: #08090e;     /* Slate-tinted dark gray/black */
-  --bg-tertiary: #0e111a;      /* Rich dark slate */
-  --card-bg: rgba(14, 17, 26, 0.65);
-  --card-border: rgba(255, 255, 255, 0.05);
-  --card-hover-border: rgba(0, 242, 254, 0.25);
+  --bg-primary: #f8fafc;       /* Light off-white background */
+  --bg-secondary: #ffffff;     /* Pure white for inner panels */
+  --bg-tertiary: #f1f5f9;      /* Light gray for section fills */
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-hover-border: rgba(59, 130, 246, 0.3);
   
-  --accent-cyan: #00f2fe;      /* Electric Cyan */
-  --accent-blue: #3b82f6;      /* Electric Royal Blue */
-  --accent-green: #00ff87;     /* Neon Green/Lime */
-  --accent-orange: #ff6b08;    /* Neon Flame Orange */
+  --accent-cyan: #0ea5e9;      /* Solid Sky Blue/Cyan for light backgrounds */
+  --accent-blue: #2563eb;      /* Deep Royal Blue */
+  --accent-green: #10b981;     /* Emerald Green */
+  --accent-orange: #f97316;    /* Dark Orange */
   
-  --text-primary: #ffffff;     /* Pure aesthetic white */
-  --text-secondary: #94a3b8;   /* Smooth slate text */
-  --text-muted: #64748b;
+  --text-primary: #0f172a;     /* Dark Slate Text */
+  --text-secondary: #475569;   /* Slate Gray Secondary */
+  --text-muted: #94a3b8;
   
   --gradient-cyan-blue: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
   --gradient-green-blue: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
-  --gradient-orange-red: linear-gradient(135deg, var(--accent-orange) 0%, #ff1f5a 100%);
+  --gradient-orange-red: linear-gradient(135deg, var(--accent-orange) 0%, #ef4444 100%);
   
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.35), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
-  --shadow-glow: 0 0 30px rgba(0, 242, 254, 0.15);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 30px rgba(14, 165, 233, 0.1);
   
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-header: 'Space Grotesk', sans-serif;
@@ -45,9 +45,9 @@ body {
   font-family: var(--font-sans);
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(0, 255, 135, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(255, 107, 8, 0.02) 0%, transparent 50%);
+    radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.01) 0%, transparent 50%);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
