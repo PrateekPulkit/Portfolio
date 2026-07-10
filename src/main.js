@@ -215,8 +215,11 @@ function renderProjects() {
         `;
       }
 
+      const animationClasses = ['slide-left', 'slide-right', 'roll-left', 'roll-right'];
+      const animClass = animationClasses[index % animationClasses.length];
+
       return `
-        <div class="glass-card project-card scroll-animate" style="--index: ${index}; transition-delay: ${index * 80}ms">
+        <div class="glass-card project-card scroll-animate ${animClass}" style="--index: ${index}; transition-delay: ${index * 80}ms">
           <div class="project-info">
             <span class="project-category"><i class="${iconClass}"></i> PORTFOLIO CREATION</span>
             <h3>${p.title}</h3>
@@ -267,10 +270,14 @@ function renderSkillsAndProfiles() {
     ];
 
     skillsContainer.innerHTML = skillCats
-      .map((cat, index) => `
-        <div class="glass-card skill-category-card scroll-animate" style="transition-delay: ${index * 80}ms">
-          <h3><i class="${cat.icon}"></i> ${cat.title}</h3>
-          <div class="skill-items-grid">
+      .map((cat, index) => {
+        const animationClasses = ['slide-left', 'slide-right', 'roll-left', 'roll-right', 'slide-left'];
+        const animClass = animationClasses[index % animationClasses.length];
+        
+        return `
+          <div class="glass-card skill-category-card scroll-animate ${animClass}" style="transition-delay: ${index * 80}ms">
+            <h3><i class="${cat.icon}"></i> ${cat.title}</h3>
+            <div class="skill-items-grid">
             ${cat.data.map(s => `
               <div class="skill-pill">
                 <span>${s.name}</span>
@@ -278,7 +285,8 @@ function renderSkillsAndProfiles() {
             `).join('')}
           </div>
         </div>
-      `).join('');
+        `;
+      }).join('');
   }
 
   // Coding Profiles
@@ -336,16 +344,20 @@ function renderEducation() {
   if (!container) return;
 
   container.innerHTML = portfolioData.education
-    .map((edu, index) => `
-      <div class="glass-card education-card scroll-animate" style="transition-delay: ${index * 80}ms">
-        <span class="edu-duration">${edu.duration}</span>
+    .map((edu, index) => {
+      const directionClass = index % 2 === 0 ? 'slide-left' : 'slide-right';
+      
+      return `
+        <div class="glass-card education-card scroll-animate ${directionClass}" style="transition-delay: ${index * 80}ms">
+          <span class="edu-duration">${edu.duration}</span>
         <h3>${edu.institution}</h3>
         <div class="edu-degree">${edu.degree}</div>
         <div class="edu-specialization">${edu.specialization}</div>
         <div class="edu-grade">${edu.grade}</div>
         <p class="edu-description">${edu.details}</p>
       </div>
-    `).join('');
+      `;
+    }).join('');
 }
 
 
@@ -355,15 +367,20 @@ function renderAchievements() {
   if (!container) return;
 
   container.innerHTML = portfolioData.achievements
-    .map((ach, index) => `
-      <div class="glass-card achievement-card scroll-animate" style="transition-delay: ${index * 80}ms">
-        <div class="ach-icon-circle">
+    .map((ach, index) => {
+      const animationClasses = ['slide-left', 'roll-left', 'slide-right', 'roll-right'];
+      const animClass = animationClasses[index % animationClasses.length];
+      
+      return `
+        <div class="glass-card achievement-card scroll-animate ${animClass}" style="transition-delay: ${index * 80}ms">
+          <div class="ach-icon-circle">
           <i class="fas fa-${ach.icon}"></i>
         </div>
         <h3>${ach.link ? `<a href="${ach.link}" target="_blank" rel="noopener noreferrer" class="achievement-link" title="View Credentials">${ach.title} <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i></a>` : ach.title}</h3>
         <p>${ach.detail}</p>
       </div>
-    `).join('');
+      `;
+    }).join('');
 }
 
 

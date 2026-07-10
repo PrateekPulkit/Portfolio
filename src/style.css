@@ -1685,28 +1685,38 @@ a.contact-link-item:hover div span {
   }
 }
 
-/* Scroll Animation classes (with 3D Sliding Transitions) */
+/* Scroll Animation classes (with 3D Sliding & Roll Transitions) */
 .scroll-animate {
   opacity: 0;
-  transform: translateY(60px) rotateX(10deg) scale(0.96);
+  transform: translateY(80px) rotateX(10deg) scale(0.95);
   transform-origin: top center;
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   backface-visibility: hidden;
 }
 
 .scroll-animate.slide-left {
-  transform: translateX(-100px) rotateY(-8deg) scale(0.96);
+  transform: translateX(-120px) rotateY(-10deg) scale(0.95);
   transform-origin: left center;
 }
 
 .scroll-animate.slide-right {
-  transform: translateX(100px) rotateY(8deg) scale(0.96);
+  transform: translateX(120px) rotateY(10deg) scale(0.95);
   transform-origin: right center;
+}
+
+.scroll-animate.roll-left {
+  transform: translateX(-150px) translateY(50px) rotate(-15deg) scale(0.92);
+  transform-origin: bottom left;
+}
+
+.scroll-animate.roll-right {
+  transform: translateX(150px) translateY(50px) rotate(15deg) scale(0.92);
+  transform-origin: bottom right;
 }
 
 .scroll-animate.visible {
   opacity: 1;
-  transform: translateY(0) translateX(0) rotateX(0deg) rotateY(0deg) scale(1);
+  transform: translateY(0) translateX(0) rotateX(0deg) rotateY(0deg) rotate(0deg) scale(1) !important;
 }
 
 
