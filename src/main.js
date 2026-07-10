@@ -691,9 +691,9 @@ function init3DTilt() {
       const xc = rect.width / 2;
       const yc = rect.height / 2;
       
-      // Calculate tilts
-      const tiltX = -(y - yc) / 10; // Max tilt: 10deg
-      const tiltY = (x - xc) / 12;  // Max tilt: ~12deg
+      // Calculate tilts (subtler tilt angles for a cleaner feel)
+      const tiltX = -(y - yc) / 30; // Max tilt: ~3.3deg
+      const tiltY = (x - xc) / 36;  // Max tilt: ~3.3deg
       
       card.style.setProperty('--rx', `${tiltX}deg`);
       card.style.setProperty('--ry', `${tiltY}deg`);
