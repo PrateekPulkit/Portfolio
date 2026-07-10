@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMouseSpotlight();
   initMagneticButtons();
   initScrollSkew();
+  initProjectsStackScroll();
 });
 
 
@@ -54,10 +55,16 @@ function renderHero() {
     profileImg.alt = `${info.name} Photo`;
   }
 
-  // Set description
+  // Set description (with premium pill highlights)
   const tagline = document.getElementById('hero-tagline');
   if (tagline) {
-    tagline.textContent = `A Computer Science specialist in Data Science and AI at SRM University AP. Building responsive interfaces, training neural models, and solving real-world challenges.`;
+    tagline.innerHTML = `
+      Hi, I'm a Computer Science student specializing in 
+      <span class="hero-pill-badge pill-purple">Data Science & AI</span> 
+      at <span class="hero-pill-badge pill-blue">SRM University AP</span>. 
+      Building research-grade <span class="hero-pill-badge pill-cyan">Machine Learning pipelines</span> and 
+      highly scalable <span class="hero-pill-badge pill-orange">Full-Stack web applications</span>.
+    `;
   }
 
   // Render social channels
@@ -141,31 +148,106 @@ function renderExperience() {
 
 
 
-// Render Projects
+// Render Projects with responsive stacking layout & custom animated CSS mockups
 function renderProjects() {
   const container = document.getElementById('projects-container');
   if (!container) return;
 
+  const gradients = ['grad-relaunch', 'grad-facial', 'grad-aether', 'grad-schrodinger', 'grad-eduquest', 'grad-bumblebee'];
+  const icons = [
+    'fa-solid fa-venus-mars',
+    'fa-solid fa-face-smile',
+    'fa-solid fa-pen-nib',
+    'fa-solid fa-key',
+    'fa-solid fa-graduation-cap',
+    'fa-solid fa-volume-high'
+  ];
+
   container.innerHTML = portfolioData.projects
-    .map((p, index) => `
-      <div class="glass-card project-card scroll-animate" style="transition-delay: ${index * 80}ms">
-        <h3>${p.title}</h3>
-        <p class="project-desc">${p.description}</p>
-        <div class="project-tags">
-          ${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+    .map((p, index) => {
+      const gradientClass = gradients[index % gradients.length];
+      const iconClass = icons[index % icons.length];
+      
+      let mockupContent = '';
+      if (index === 0) {
+        mockupContent = `
+          <div class="mockup-dashboard">
+            <div style="width: 100px; height: 8px; background: rgba(255,255,255,0.15); border-radius: 4px; margin-bottom: 12px;"></div>
+            <div style="display: flex; gap: 8px;">
+              <div style="width: 40px; height: 30px; background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.3); border-radius: 4px;"></div>
+              <div style="width: 40px; height: 30px; background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.3); border-radius: 4px;"></div>
+            </div>
+          </div>
+        `;
+      } else if (index === 1) {
+        mockupContent = `
+          <div class="mockup-face-grid"></div>
+          <div style="margin-top: 12px; font-size: 0.7rem; color: #10b981; font-family: monospace; letter-spacing: 1px;">MESH DETECTED: 98.4%</div>
+        `;
+      } else if (index === 2) {
+        mockupContent = `
+          <div style="width: 80%; display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 6px; width: 95%; background: rgba(255,255,255,0.15); border-radius: 2px;"></div>
+            <div style="height: 6px; width: 70%; background: rgba(0, 242, 254, 0.45); border-radius: 2px;"></div>
+            <div style="height: 6px; width: 85%; background: rgba(255,255,255,0.15); border-radius: 2px;"></div>
+          </div>
+        `;
+      } else if (index === 3) {
+        mockupContent = `
+          <i class="fa-solid fa-lock" style="font-size: 2rem; color: #d946ef; margin-bottom: 10px;"></i>
+          <div style="font-size: 0.7rem; font-family: monospace; color: rgba(255,255,255,0.4);">[PQC_AES_256_ACTIVE]</div>
+        `;
+      } else if (index === 4) {
+        mockupContent = `
+          <i class="fa-solid fa-graduation-cap" style="font-size: 2rem; color: #f97316; margin-bottom: 10px;"></i>
+          <div style="width: 70px; height: 5px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;">
+            <div style="width: 75%; height: 100%; background: #f97316;"></div>
+          </div>
+        `;
+      } else {
+        mockupContent = `
+          <div class="mockup-waveform">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div style="margin-top: 10px; font-size: 0.7rem; color: var(--accent-cyan); font-family: monospace; letter-spacing: 0.5px;">Listening...</div>
+        `;
+      }
+
+      return `
+        <div class="glass-card project-card scroll-animate" style="--index: ${index}; transition-delay: ${index * 80}ms">
+          <div class="project-info">
+            <span class="project-category"><i class="${iconClass}"></i> PORTFOLIO CREATION</span>
+            <h3>${p.title}</h3>
+            <p class="project-desc">${p.description}</p>
+            <div class="project-tags">
+              ${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+            </div>
+            <div class="project-links">
+              <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <i class="fa-brands fa-github"></i> Source Code
+              </a>
+              ${p.demo && p.demo !== '#' ? `
+                <a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+              ` : ''}
+            </div>
+          </div>
+          <div class="project-visual ${gradientClass}">
+            <div class="mockup-window">
+              <div class="mockup-header">
+                <span class="mockup-dot red"></span>
+                <span class="mockup-dot yellow"></span>
+                <span class="mockup-dot green"></span>
+              </div>
+              <div class="mockup-body">
+                ${mockupContent}
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="project-links">
-          <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="project-link">
-            <i class="fa-brands fa-github"></i> Source Code
-          </a>
-          ${p.demo && p.demo !== '#' ? `
-            <a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="project-link">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-            </a>
-          ` : ''}
-        </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
 }
 
 
@@ -719,5 +801,49 @@ function initScrollSkew() {
 
   requestAnimationFrame(update);
 }
+
+// 3D Sticky Projects Stacking Scroll Effect (updates cards scale/opacity on scroll)
+function initProjectsStackScroll() {
+  const isMobile = () => window.innerWidth < 992;
+  
+  function update() {
+    const cards = document.querySelectorAll('.project-card');
+    if (cards.length === 0 || isMobile()) {
+      // Revert inline styles on mobile views
+      cards.forEach(card => {
+        card.style.transform = '';
+        card.style.filter = '';
+        card.style.opacity = '';
+      });
+      return;
+    }
+    
+    cards.forEach((card, index) => {
+      const rect = card.getBoundingClientRect();
+      const topOffset = rect.top - 120; // 120px sticky threshold
+      
+      if (topOffset < 0) {
+        // Compute progress based on scroll height (max out at 400px scroll)
+        const progress = Math.min(Math.abs(topOffset) / 400, 1);
+        const scale = 1 - progress * 0.04;        // down to 0.96
+        const opacity = 1 - progress * 0.3;        // down to 0.7
+        const brightness = 1 - progress * 0.25;    // down to 0.75
+        
+        card.style.transform = `perspective(1000px) scale(${scale}) translateY(${topOffset * 0.1}px)`;
+        card.style.filter = `brightness(${brightness})`;
+        card.style.opacity = `${opacity}`;
+      } else {
+        card.style.transform = 'perspective(1000px) scale(1) translateY(0)';
+        card.style.filter = 'brightness(1)';
+        card.style.opacity = '1';
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+}
+
 
 
