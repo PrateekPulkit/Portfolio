@@ -206,20 +206,53 @@ main {
 
 .glass-card:hover {
   border-color: var(--card-hover-border);
-  box-shadow: var(--shadow-lg), 0 10px 30px rgba(0, 242, 254, 0.08);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.08), 
+    0 0 25px rgba(14, 165, 233, 0.1), 
+    0 0 40px rgba(168, 85, 247, 0.05);
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(10px) scale(1.015);
 }
 
 .glass-card:hover::after {
   opacity: 1;
 }
 
-.glass-card h3, 
-.glass-card p, 
-.glass-card div, 
-.glass-card ul, 
-.glass-card button, 
-.glass-card span {
-  transform: translateZ(25px);
+/* 3D Layer Pop Transitions for child elements */
+.glass-card h3,
+.glass-card .project-desc,
+.glass-card .tech-tag,
+.glass-card .btn,
+.glass-card .timeline-company,
+.glass-card .timeline-bullets,
+.glass-card .timeline-meta,
+.glass-card .edu-duration,
+.glass-card .edu-degree,
+.glass-card .ach-icon-circle {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateZ(0);
+}
+
+.glass-card:hover h3 {
+  transform: translateZ(28px);
+}
+
+.glass-card:hover .project-desc,
+.glass-card:hover .timeline-bullets,
+.glass-card:hover .edu-degree {
+  transform: translateZ(18px);
+}
+
+.glass-card:hover .tech-tag,
+.glass-card:hover .timeline-company,
+.glass-card:hover .timeline-meta,
+.glass-card:hover .edu-duration {
+  transform: translateZ(12px);
+}
+
+.glass-card:hover .btn,
+.glass-card:hover .project-links,
+.glass-card:hover .ach-icon-circle {
+  transform: translateZ(24px) scale(1.03);
 }
 
 
@@ -250,7 +283,7 @@ main {
   left: 0;
   width: 650px;
   height: 650px;
-  background: radial-gradient(circle, rgba(0, 242, 254, 0.05) 0%, rgba(0, 255, 135, 0.02) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(168, 85, 247, 0.04) 40%, rgba(249, 115, 22, 0.02) 70%, transparent 100%);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
