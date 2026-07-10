@@ -1,28 +1,28 @@
 /* CSS Custom Properties / Design Tokens */
 :root {
-  --bg-primary: #080a10;
-  --bg-secondary: #0f121d;
-  --bg-tertiary: #161b29;
-  --card-bg: rgba(22, 27, 41, 0.65);
-  --card-border: rgba(255, 255, 255, 0.06);
-  --card-hover-border: rgba(0, 242, 254, 0.3);
+  --bg-primary: #030408;       /* Deep matte black */
+  --bg-secondary: #08090e;     /* Slate-tinted dark gray/black */
+  --bg-tertiary: #0e111a;      /* Rich dark slate */
+  --card-bg: rgba(14, 17, 26, 0.65);
+  --card-border: rgba(255, 255, 255, 0.05);
+  --card-hover-border: rgba(0, 242, 254, 0.25);
   
-  --accent-cyan: #00f2fe;
-  --accent-blue: #4facfe;
-  --accent-purple: #9b5de5;
-  --accent-pink: #f15bb5;
+  --accent-cyan: #00f2fe;      /* Electric Cyan */
+  --accent-blue: #3b82f6;      /* Electric Royal Blue */
+  --accent-green: #00ff87;     /* Neon Green/Lime */
+  --accent-orange: #ff6b08;    /* Neon Flame Orange */
   
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
+  --text-primary: #ffffff;     /* Pure aesthetic white */
+  --text-secondary: #94a3b8;   /* Smooth slate text */
   --text-muted: #64748b;
   
   --gradient-cyan-blue: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
-  --gradient-purple-blue: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
-  --gradient-pink-purple: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-purple) 100%);
+  --gradient-green-blue: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+  --gradient-orange-red: linear-gradient(135deg, var(--accent-orange) 0%, #ff1f5a 100%);
   
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.35), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
   --shadow-glow: 0 0 30px rgba(0, 242, 254, 0.15);
   
   --font-sans: 'Plus Jakarta Sans', sans-serif;
@@ -45,8 +45,9 @@ body {
   font-family: var(--font-sans);
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(79, 172, 254, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(155, 93, 229, 0.04) 0%, transparent 40%);
+    radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0, 255, 135, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 107, 8, 0.02) 0%, transparent 50%);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
@@ -248,7 +249,7 @@ main {
   left: 0;
   width: 650px;
   height: 650px;
-  background: radial-gradient(circle, rgba(0, 242, 254, 0.06) 0%, rgba(155, 93, 229, 0.02) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.05) 0%, rgba(0, 255, 135, 0.02) 40%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -798,12 +799,12 @@ main {
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.grad-relaunch { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
-.grad-facial { background: linear-gradient(135deg, #10b981, #06b6d4); }
-.grad-aether { background: linear-gradient(135deg, #3b82f6, #00f2fe); }
-.grad-schrodinger { background: linear-gradient(135deg, #8b5cf6, #d946ef); }
-.grad-eduquest { background: linear-gradient(135deg, #f97316, #eab308); }
-.grad-bumblebee { background: linear-gradient(135deg, #4f46e5, #ec4899); }
+.grad-relaunch { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); }
+.grad-facial { background: linear-gradient(135deg, var(--accent-green), var(--accent-blue)); }
+.grad-aether { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); }
+.grad-schrodinger { background: linear-gradient(135deg, var(--accent-orange), #ff1f5a); }
+.grad-eduquest { background: linear-gradient(135deg, #f59e0b, var(--accent-orange)); }
+.grad-bumblebee { background: linear-gradient(135deg, var(--accent-green), var(--accent-orange)); }
 
 /* Mockup Window Styling */
 .mockup-window {
