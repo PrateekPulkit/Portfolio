@@ -45,9 +45,10 @@ body {
   font-family: var(--font-sans);
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.01) 0%, transparent 50%);
+    radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 90% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 10% 60%, rgba(249, 115, 22, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 90% 90%, rgba(168, 85, 247, 0.1) 0%, transparent 45%);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
@@ -378,9 +379,9 @@ main {
 
 .hero-welcome {
   display: inline-block;
-  background: rgba(0, 242, 254, 0.08);
-  border: 1px solid rgba(0, 242, 254, 0.2);
-  color: var(--accent-cyan);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  color: #0284c7;
   padding: 6px 16px;
   border-radius: 20px;
   font-family: var(--font-header);
@@ -1712,4 +1713,57 @@ a.contact-link-item:hover div span {
   background: rgba(249, 115, 22, 0.25);
   box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
 }
+
+/* Alternate Section Underline Gradients (Soft Colors) */
+#about .section-line { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); }
+#experience .section-line { background: linear-gradient(135deg, var(--accent-green), var(--accent-blue)); }
+#projects .section-line { background: linear-gradient(135deg, var(--accent-orange), #ef4444); }
+#skills .section-line { background: linear-gradient(135deg, #a855f7, var(--accent-blue)); }
+#education .section-line { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green)); }
+#contact .section-line { background: linear-gradient(135deg, var(--accent-orange), var(--accent-blue)); }
+
+/* Colorful Left Borders for soft visual variety and high aesthetics */
+.timeline-item:nth-child(3n+1) .timeline-content {
+  border-left: 4px solid var(--accent-cyan) !important;
+}
+.timeline-item:nth-child(3n+2) .timeline-content {
+  border-left: 4px solid var(--accent-green) !important;
+}
+.timeline-item:nth-child(3n+3) .timeline-content {
+  border-left: 4px solid var(--accent-orange) !important;
+}
+
+.skill-category-card:nth-child(5n+1) {
+  border-left: 4px solid var(--accent-green) !important;
+}
+.skill-category-card:nth-child(5n+2) {
+  border-left: 4px solid var(--accent-blue) !important;
+}
+.skill-category-card:nth-child(5n+3) {
+  border-left: 4px solid var(--accent-orange) !important;
+}
+.skill-category-card:nth-child(5n+4) {
+  border-left: 4px solid #a855f7 !important;
+}
+.skill-category-card:nth-child(5n+5) {
+  border-left: 4px solid var(--accent-cyan) !important;
+}
+
+.education-card:nth-child(2n+1) {
+  border-left: 4px solid var(--accent-blue) !important;
+}
+.education-card:nth-child(2n+2) {
+  border-left: 4px solid var(--accent-orange) !important;
+}
+
+.achievement-card:nth-child(3n+1) {
+  border-left: 4px solid var(--accent-green) !important;
+}
+.achievement-card:nth-child(3n+2) {
+  border-left: 4px solid var(--accent-cyan) !important;
+}
+.achievement-card:nth-child(3n+3) {
+  border-left: 4px solid #a855f7 !important;
+}
+
 
