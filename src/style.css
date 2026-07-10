@@ -271,9 +271,9 @@ main {
 
 .header.scrolled {
   padding: 12px 0;
-  background: rgba(8, 10, 16, 0.8);
+  background: rgba(248, 250, 252, 0.8);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .nav-container {
@@ -1405,7 +1405,7 @@ a.contact-link-item:hover div span {
 /* Footer Section */
 .footer-bar {
   background: var(--bg-primary);
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   padding: 40px 0;
   text-align: center;
 }
@@ -1582,13 +1582,13 @@ a.contact-link-item:hover div span {
     left: -100%;
     width: 100%;
     height: calc(100vh - 80px);
-    background: rgba(8, 10, 16, 0.95);
+    background: rgba(248, 250, 252, 0.95);
     backdrop-filter: blur(20px);
     flex-direction: column;
     padding: 40px 24px;
     gap: 28px;
     transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
   }
   
   .nav-menu.active {
